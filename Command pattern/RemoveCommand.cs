@@ -25,7 +25,7 @@ namespace LimitedSizeStack.Command_pattern
             receiver.RemoveItem(index);
         }
 
-        public void Undo()
+        public override void Undo()
         {
             receiver.Insert(lastRemovedElement.Value, lastRemovedElement.Index);
         }

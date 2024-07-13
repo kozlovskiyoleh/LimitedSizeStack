@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using LimitedSizeStack;
 namespace LimitedSizeStack.Command_pattern
 {
+    //Any mistake here
+
     public class Invoker<TItem>
     {
         private LimitedSizeStack<Command<TItem>> _commands;
@@ -17,21 +19,15 @@ namespace LimitedSizeStack.Command_pattern
 
         public void SetCommand(Command<TItem> command)
         {
+            //Next line maybe wrong
+            command.Execute();
             _commands.Push(command);
-        }
-
-        public void Run()
-        {
-            while(_commands.Count > 0)
-            {
-                var command = _commands.Pop();
-                command.Execute();
-            }
         }
 
         public void Undo()
         {
-            _commands.Pop();
+            var command = _commands.Pop();
+            command.Undo();
         }
 
         public bool CanUndo()

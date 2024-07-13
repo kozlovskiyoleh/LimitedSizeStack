@@ -9,5 +9,6 @@ namespace LimitedSizeStack
     public abstract class Command<TItem>
     {
         public abstract void Execute();
+        public abstract void Undo();
     }
 }

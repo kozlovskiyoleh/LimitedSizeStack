@@ -22,7 +22,7 @@ namespace LimitedSizeStack.Command_pattern
             receiver.AddItem(item);
         }
 
-        public void Undo()
+        public override void Undo()
         {
             receiver.RemoveItem(receiver.LastElementIndex);
         }

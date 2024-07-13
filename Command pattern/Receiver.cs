@@ -8,8 +8,9 @@ namespace LimitedSizeStack.Command_pattern
 {
     public class Receiver<TItem>
     {
-        private readonly List<TItem> _items = new List<TItem>();
-        public int LastElementIndex { get => _items.Count; }
+        //TODO make access throw method 
+        public readonly List<TItem> _items = new List<TItem>();
+        public int LastElementIndex { get => _items.Count - 1; }
 
         public void AddItem(TItem item) => _items.Add(item);
         public void RemoveItem(int index) => _items.RemoveAt(index);

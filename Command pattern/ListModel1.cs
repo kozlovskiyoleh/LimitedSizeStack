@@ -12,7 +12,6 @@ namespace LimitedSizeStack.Command_pattern
         { 
             get 
             {
-                invoker.Run();
                 return receiver._items;
             } 
         }
