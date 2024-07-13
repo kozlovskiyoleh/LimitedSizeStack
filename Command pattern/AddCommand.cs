@@ -21,5 +21,10 @@ namespace LimitedSizeStack.Command_pattern
         {
             receiver.AddItem(item);
         }
+
+        public void Undo()
+        {
+            receiver.RemoveItem(receiver.LastElementIndex);
+        }
     }
 }
