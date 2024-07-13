@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LimitedSizeStack.Command_pattern
+namespace LimitedSizeStack
 {
-    public interface ICommand
+    public abstract class Command<TItem>
     {
-        void Undo();
-        bool CanUndo();
+        public abstract void Execute();
     }
 }

@@ -16,7 +16,7 @@ public class LimitedSizeStack<T>
 
 	public void Push(T item)
 	{
-		if (_limitSize == 0) return;
+		if (_limitSize <= 0) return;
 		if (_stack.Count < _limitSize)
 		{
 			_stack.AddFirst(item);

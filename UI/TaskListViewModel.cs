@@ -1,3 +1,4 @@
+using LimitedSizeStack.Command_pattern;
 using ReactiveUI;
 
 namespace LimitedSizeStack.UI;
@@ -8,11 +9,11 @@ public class TaskListViewModel : ReactiveObject
 
 	public bool CanUndo => model.CanUndo();
 
-	private readonly ListModel<string> model;
+	private readonly ListModel1<string> model;
 
 	private string[] items;
 
-	public TaskListViewModel(ListModel<string> listModel)
+	public TaskListViewModel(ListModel1<string> listModel)
 	{
 		model = listModel;
 		Update();

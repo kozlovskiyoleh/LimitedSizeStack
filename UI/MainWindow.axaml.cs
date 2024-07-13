@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Input;
+using LimitedSizeStack.Command_pattern;
 
 namespace LimitedSizeStack.UI;
 
@@ -13,7 +14,7 @@ public partial class MainWindow : Window
 		InitializeComponent();
 
 		var list = new List<string> { "Составить список дел на сегодня", "Домашка по C#", "Решить задачу 1519" };
-		var listModel = new ListModel<string>(list, 20);
+		var listModel = new ListModel1<string>(list, 20);
 
 		model = new TaskListViewModel(listModel);
 		

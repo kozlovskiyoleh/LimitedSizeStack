@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using LimitedSizeStack.Command_pattern;
 using NUnit.Framework;
 
 namespace LimitedSizeStack;
@@ -9,7 +10,7 @@ public class ListModel_Should
 	[Test]
 	public void AddItems()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.AddItem("ccc");
@@ -19,7 +20,7 @@ public class ListModel_Should
 	[Test]
 	public void RemoveFromTheEnd()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.AddItem("ccc");
@@ -30,7 +31,7 @@ public class ListModel_Should
 	[Test]
 	public void RemoveFromTheBeginning()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.AddItem("ccc");
@@ -41,7 +42,7 @@ public class ListModel_Should
 	[Test]
 	public void RemoveFromTheMiddle()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.AddItem("ccc");
@@ -54,7 +55,7 @@ public class ListModel_Should
 	[Test]
 	public void RemoveAndUndoAllItems()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.AddItem("ccc");
@@ -71,7 +72,7 @@ public class ListModel_Should
 	[Test]
 	public void UndoAddOperations()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		Assert.AreEqual(true, model.CanUndo());
 		model.Undo();
@@ -81,7 +82,7 @@ public class ListModel_Should
 	[Test]
 	public void NotUndo_WhenEverythingIsUndone()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.Undo();
@@ -92,7 +93,7 @@ public class ListModel_Should
 	[Test]
 	public void Add_AfterUndo()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.Undo();
@@ -104,7 +105,7 @@ public class ListModel_Should
 	[Test]
 	public void Undo_AfterRemove()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.RemoveItem(1);
@@ -115,7 +116,7 @@ public class ListModel_Should
 	[Test]
 	public void Remove_AfterUndo()
 	{
-		var model = new ListModel<string>(20);
+		var model = new ListModel1	<string>(20);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.Undo();
@@ -126,7 +127,7 @@ public class ListModel_Should
 	[Test]
 	public void NotUndo_WhenUndoLimitIsReached()
 	{
-		var model = new ListModel<string>(2);
+		var model = new ListModel1<string>(2);
 		model.AddItem("a");
 		model.AddItem("bb");
 		model.RemoveItem(1);
@@ -139,7 +140,7 @@ public class ListModel_Should
 	[Test]
 	public void CanUndo_ReturnsFalse_WhenUndoLimitIsReached()
 	{
-		var model = new ListModel<string>(1);
+		var model = new ListModel1<string>(1);
 		Assert.AreEqual(false, model.CanUndo());
 		model.AddItem("a");
 		model.AddItem("bb");
@@ -152,7 +153,7 @@ public class ListModel_Should
 	[Test]
 	public void CanUndo_ReturnsFalse_WhenUndoLimitIsZero()
 	{
-		var model = new ListModel<string>(0);
+		var model = new ListModel1<string>(0);
 		Assert.AreEqual(false, model.CanUndo());
 		model.AddItem("a");
 		model.AddItem("bb");

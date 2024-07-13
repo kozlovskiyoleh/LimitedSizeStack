@@ -1,4 +1,5 @@
-﻿using NUnit.Framework;
+﻿using LimitedSizeStack.Command_pattern;
+using NUnit.Framework;
 
 namespace LimitedSizeStack;
 
@@ -10,7 +11,7 @@ class ListModel_PerformanceTest
 	public void AntiStupidTest()
 	{
 		var undoLim = 30000;
-		var model = new ListModel<int>(undoLim);
+		var model = new ListModel1<int>(undoLim);
 		for (var i = 0; i < undoLim; ++i)
 		{
 			model.AddItem(0);
